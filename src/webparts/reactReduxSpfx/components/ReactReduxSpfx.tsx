@@ -8,6 +8,7 @@ import Store from '../../Store';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import * as types from '../actions/types';
+import * as service from '../service/Service';
 
 export default class ReactReduxSpfx extends React.Component<IReactReduxSpfxProps, IReactReduxSpfxState> {
 
@@ -36,6 +37,15 @@ export default class ReactReduxSpfx extends React.Component<IReactReduxSpfxProps
     console.log("E Name " + event.target.name + " E value" + event.target.value);
   }
 
+  public componentDidMount() {
+    console.log('I am mounted');
+    //service.getPeriods();
+  }
+
+  public doAxios() {
+    service.getPeriods();
+  }
+
   public render(): React.ReactElement<IReactReduxSpfxProps> {
     return (
       <Provider store={Store}>
@@ -46,7 +56,8 @@ export default class ReactReduxSpfx extends React.Component<IReactReduxSpfxProps
                 <div>
                   <p className={styles.description}>{escape(this.props.description)}</p>
                   <TextField label="Standard" onChanged={e => this.setState({ userName: e })} />
-                  <DefaultButton text="Button 1" onClick={this.showMyMessage.bind(this, 1, 50)} />
+                  <DefaultButton text="Console" onClick={this.showMyMessage.bind(this, 1, 50)} />
+                  &nbsp;
                   <DefaultButton text="To store" onClick={
                     () => {
                       this.myFunc1();
@@ -54,7 +65,10 @@ export default class ReactReduxSpfx extends React.Component<IReactReduxSpfxProps
                     }
                   }
                   />
-                  <DefaultButton text="Button 3" onClick={e => this.handle2(e)} />
+                  &nbsp;
+                  <DefaultButton text="Func" onClick={e => this.handle2(e)} />
+                  &nbsp;
+                  <DefaultButton text="Axios" onClick={this.doAxios.bind(this)} />
                 </div>
               </div>
             </div>

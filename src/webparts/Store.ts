@@ -8,8 +8,8 @@ const middleware = applyMiddleware(thunk);
 const store = createStore(reducer, composeWithDevTools(
     applyMiddleware(thunk)));
 
-store.subscribe(() => {
-    console.log('subscribe', store.getState());
-});
+// store.subscribe(() => {
+//     console.log('subscribe', store.getState());
+// });
 
 export default store;

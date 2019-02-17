@@ -15,13 +15,15 @@ export interface IReactReduxSpfxWebPartProps {
   description: string;
 }
 
-export default class ReactReduxSpfxWebPart extends BaseClientSideWebPart<IReactReduxSpfxWebPartProps> {
+export default class ReactReduxSpfxWebPart extends BaseClientSideWebPart<IReactReduxSpfxProps> {
 
   public render(): void {
     const element: React.ReactElement<IReactReduxSpfxProps > = React.createElement(
       ReactReduxSpfx,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        spHttpClient: this.context.spHttpClient,
+        context: this.context.pageContext
       }
     );
 
