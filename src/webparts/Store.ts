@@ -8,6 +8,6 @@ const store = createStore(reducer, middleware);
 
 store.subscribe(() => {
     console.log('subscribe', store.getState());
-})
+});
 
 export default store;
