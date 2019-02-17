@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.7.1",
+    "libraryName": "react-redux-kdv",
+    "libraryId": "75020604-b6dd-46a9-b600-04c393fe9ca7",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}
